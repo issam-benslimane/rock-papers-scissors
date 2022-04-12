@@ -6,7 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-  <script src="p.js" defer></script>
+  <script src="script.js" defer></script>
   <title>Frontend Mentor | Rock, Paper, Scissors</title>
 
   
@@ -26,19 +26,19 @@
       <button class="btn" data-item="rock"></button>
     </div>
     <div class="result" hidden>
-      <div>
+      <div class="player-choice">
         <p>you picked</p>
-        <button class="btn btn--lg" data-item="rock"></button>
+        <button class="btn btn--lg"></button>
       </div>
 
-      <div>
-        <p>you lost</p>
+      <div class="msg">
+        <p></p>
         <button class="play-again">play again</button>
       </div>
 
-      <div>
+      <div class="computer-choice">
         <p>the house picked</p>
-        <button class="btn btn--lg" data-item="paper"></button>
+        <button class="btn btn--lg"></button>
       </div>
     </div>
   </main>
