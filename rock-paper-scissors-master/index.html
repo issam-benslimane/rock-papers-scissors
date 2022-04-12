@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="p.js" defer></script>
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+  
+</head>
+<body>
+  <main>
+    <header>
+      <h1>rock paper Scissors</h1>
+      <div class="score">
+          <span>score</span>
+          <span>0</span>
+      </div>
+    </header>
+    <div class="game">
+      <button class="btn" data-item="paper"></button>
+      <button class="btn" data-item="scissors"></button>
+      <button class="btn" data-item="rock"></button>
+    </div>
+    <div class="result" hidden>
+      <div>
+        <p>you picked</p>
+        <button class="btn btn--lg" data-item="rock"></button>
+      </div>
+
+      <div>
+        <p>you lost</p>
+        <button class="play-again">play again</button>
+      </div>
+
+      <div>
+        <p>the house picked</p>
+        <button class="btn btn--lg" data-item="paper"></button>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

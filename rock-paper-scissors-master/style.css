@@ -1,0 +1,236 @@
+:root{
+--Scissors-Gradient: hsl(39, 89%, 49%) , hsl(40, 84%, 53%);
+--Paper-Gradient: hsl(230, 89%, 62%) , hsl(230, 89%, 65%);
+--Rock-Gradient: hsl(349, 71%, 52%) , hsl(349, 70%, 56%);
+--Lizard-Gradient: hsl(261, 73%, 60%) , hsl(261, 72%, 63%);
+--Cyan: hsl(189, 59%, 53%) , hsl(189, 58%, 57%);
+
+--Dark-Text: hsl(229, 25%, 31%);
+--Score-Text: hsl(229, 64%, 46%);
+--Header-Outline: hsl(217, 16%, 45%);
+
+--Radial-Gradient: hsl(214, 47%, 23%) , hsl(237, 49%, 15%);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom,var(--Radial-Gradient));
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+.btn,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+main{
+    max-width: 40rem;
+    margin-inline: auto;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    padding: 2em;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    border: 2px solid var(--Header-Outline);
+    border-radius: .5em;
+}
+
+h1{
+    color: aliceblue;
+    width: min-content;
+    line-height: 1;
+    font-size: 1.875rem;
+    text-transform: uppercase;
+}
+
+.score {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .675em;
+    line-height: 1.2;
+    border-radius: .25em;
+    min-width: 6.5em;
+}
+
+.score > span:first-of-type{
+    color: var(--Score-Text);
+    text-transform: uppercase;
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.score > span:last-of-type{
+    color: var(--Dark-Text);
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+div[hidden]{
+  display: none;
+}
+
+.game{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    background: url(images/bg-triangle.svg) center no-repeat;
+    background-size: 50%;
+}
+
+.btn{
+  --width:6rem;
+    display: inline-flex;
+    border: 0;
+    background: center no-repeat;
+    background-color: aliceblue;
+    cursor: pointer;
+    width: var(--width);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: inset 0px 4px 3px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+.btn--lg{
+  --width:8.5rem;
+}
+
+.btn::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: inherit;
+    transform: translate(-50%,-50%);
+    width: calc(100% + 30%);
+    aspect-ratio: 1;
+    box-shadow: inset 0px -5px  rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+.btn[data-item="rock"]{
+    background-image: url(images/icon-rock.svg);
+    grid-column: 1 / -1;
+}
+.btn[data-item="rock"]::before{
+    background-image: linear-gradient(to right,var(--Rock-Gradient));
+}
+.btn[data-item="paper"]{
+    background-image: url(images/icon-paper.svg);
+}
+.btn[data-item="paper"]::before{
+    background-image: linear-gradient(to right,var(--Paper-Gradient));
+    
+}
+.btn[data-item="scissors"]{
+    background-image: url(images/icon-scissors.svg);
+}
+.btn[data-item="scissors"]::before{
+    background-image: linear-gradient(to right,var(--Scissors-Gradient));
+
+}
+
+.result{
+  display: flex;
+  justify-content: space-around;
+  gap: 1em;
+}
+
+.result > div{
+text-align: center;
+padding: 1em;
+align-self: center;
+}
+
+.result p{
+  color: aliceblue;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 2em;
+}
+
+.play-again{
+  border: 0;
+  padding: .75em 1em;
+  border-radius: .25em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--Dark-Text);
+  cursor: pointer;
+}
